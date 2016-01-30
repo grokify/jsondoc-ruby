@@ -1,4 +1,5 @@
-= JsonDoc
+JsonDoc
+=======
 
 Generic JSON document base class to set/get document attributes based on JSON Schema, dump as JSON and support building of CSV and Excel workbooks. Subclasses can be built with additional functionality, e.g. using the setAttr method. Primary use cases include being used with parsers to create JSON documents and to create CSV/Excel reports.
 
@@ -12,6 +13,7 @@ Download and install jsondoc with the following:
 
 == Usage
 
+```ruby
   require 'jsondoc'
 
   mySchema      =  {
@@ -39,6 +41,7 @@ Download and install jsondoc with the following:
   thisUser.pushAttr( :email_addresses, 'john.doe@example.com' )
 
   thisUser.cpAttr( :first_name, :last_name )
+```
 
 == Notes
 
