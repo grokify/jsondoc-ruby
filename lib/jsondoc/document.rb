@@ -8,7 +8,6 @@ end
 
 module JsonDoc
   class Document
-
     attr_accessor :bIsStrict
     attr_accessor :bUseKeyAsDesc
 
@@ -223,6 +222,5 @@ module JsonDoc
     alias_method :getAttr , :getProp
     alias_method :pushAttr, :pushProp
     alias_method :cpAttr  , :cpProp
-
   end
 end

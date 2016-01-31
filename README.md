@@ -25,7 +25,9 @@ $ gem install jsondoc
 ```ruby
 require 'jsondoc'
 
-mySchema      =  {
+my_data = {}
+
+my_schema     =  {
   :type       => 'My Document Type',
   :properties => {
     :first_name      => { :type => 'string', :description => 'First Name', :default => '' },
@@ -34,11 +36,11 @@ mySchema      =  {
   }
 }
 
-thisUser = JsonDoc::Document.new( mySchema )
-thisUser.setAttr( :first_name, 'John' )
-thisUser.setAttr( :last_name,  'Doe'  )
+thisUser = JsonDoc::Document.new(my_data, my_schema)
+thisUser.setAttr(:first_name, 'John')
+thisUser.setAttr(:last_name,  'Doe')
 
-first_name = thisUser.getAttr( :first_name )
+first_name = thisUser.getAttr(:first_name)
 
 thisUserHash = thisUser.asHash
 thisUserJson = thisUser.asJson
@@ -46,10 +48,10 @@ thisUserJson = thisUser.asJson
 descs  = thisUser.getDescArrayForProperties( [:first_name,:last_name] )
 values = thisUser.getValArrayForProperties(  [:first_name,:last_name] )
 
-thisUser.pushAttr( :email_addresses, 'john@example.com' )
-thisUser.pushAttr( :email_addresses, 'john.doe@example.com' )
+thisUser.pushAttr(:email_addresses, 'john@example.com')
+thisUser.pushAttr(:email_addresses, 'john.doe@example.com')
 
-thisUser.cpAttr( :first_name, :last_name )
+thisUser.cpAttr(:first_name, :last_name)
 ```
 
 ## Notes
@@ -65,23 +67,11 @@ Schema validation is not provided in this version.
 2. JSON Schema
   * http://json-schema.org/
 
-### Problems, Comments, Suggestions?
-
-All of the above are most welcome. mailto:johncwang@gmail.com
-
-## Credits
-
-John Wang - http://johnwang.com
-
 ## License
 
-JsonDoc is available under an MIT-style license.
+JsonDoc is available under an MIT-style license. See [LICENSE.txt](LICENSE.txt) for details.
 
-:include: MIT-LICENSE 
-
-## Warranty
-
-This software is provided "as is" and without any express or implied warranties, including, without limitation, the implied warranties of merchantibility and fitness for a particular purpose.
+JsonDoc &copy; 2014-2016 by John Wang
 
  [gem-version-svg]: https://badge.fury.io/rb/jsondoc.svg
  [gem-version-link]: http://badge.fury.io/rb/jsondoc
@@ -95,4 +85,3 @@ This software is provided "as is" and without any express or implied warranties,
  [docs-rubydoc-link]: http://www.rubydoc.info/gems/jsondoc/
  [license-svg]: https://img.shields.io/badge/license-MIT-blue.svg
  [license-link]: https://github.com/grokify/jsondoc-ruby/blob/master/LICENSE.txt
-
