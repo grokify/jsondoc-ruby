@@ -14,7 +14,7 @@ class JsonDocTest < Test::Unit::TestCase
       }
     }
 
-    jDoc = JsonDoc::Document.new(schemaTest,true,true)
+    jDoc = JsonDoc::Document.new({},schemaTest,true,true)
 
     assert_equal 'abc'          , jDoc.getAttr(:id)
     assert_equal "abc\tbar"     , jDoc.getValStringForProperties([:id,:foo])
@@ -40,5 +40,15 @@ class JsonDocTest < Test::Unit::TestCase
     jDoc.cpAttr(:id,:foo)
     assert_equal jDoc.getAttr(:id), jDoc.getAttr(:foo)
 
+  end
+
+  def test_nested()
+    data = {
+      :foo => {
+        :bar => { :baz => 10 }
+      }
+    }
+    doc = JsonDoc::Document.new(data,{},false,false)
+    assert_equal 10, doc.getAttr('foo.bar.baz')
   end
 end

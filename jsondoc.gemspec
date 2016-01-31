@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.files       = [
     'CHANGELOG.md',
     'LICENSE',
-    'README.rdoc',
+    'README.md',
     'Rakefile',
     'VERSION',
     'jsondoc.gemspec',
