@@ -10,7 +10,7 @@ JsonDoc
 [![Docs][docs-rubydoc-svg]][docs-rubydoc-link]
 [![License][license-svg]][license-link]
 
-Generic JSON document base class to set/get document attributes based on JSON Schema, dump as JSON and support building of CSV and Excel workbooks. Subclasses can be built with additional functionality, e.g. using the setAttr method. Primary use cases include being used with parsers to create JSON documents and to create CSV/Excel reports.
+Generic JSON document base class to set/get document attributes based on JSON Schema, dump as JSON and support building of CSV and Excel workbooks. Subclasses can be built with additional functionality, e.g. using the `setAttr` method. Primary use cases include being used with parsers to create JSON documents and to create CSV/Excel reports.
 
 ## Installation
 
