@@ -6,21 +6,13 @@ version = $1
 Gem::Specification.new do |s|
   s.name        = 'jsondoc'
   s.version     = version
-  s.date        = '2016-02-04'
+  s.date        = '2016-02-05'
   s.summary     = 'JsonDoc'
   s.description = 'A base document object'
   s.authors     = ['John Wang']
   s.email       = 'johncwang@gmail.com'
   s.homepage    = 'https://github.com/grokify/'
   s.licenses    = ['MIT']
-  s.files       = [
-    'CHANGELOG.md',
-    'LICENSE.txt',
-    'README.md',
-    'Rakefile',
-    'jsondoc.gemspec',
-    'lib/jsondoc.rb',
-    'lib/jsondoc/document.rb',
-    'test/test_setup.rb'
-  ] 
+  s.files       = Dir['lib/**/**/*'] + Dir['test/**/*'] \
+                + Dir['[A-Z]*'].grep(/^[A-Z]/).select {|s|/Gemfile\.lock/ !~ s}
 end
