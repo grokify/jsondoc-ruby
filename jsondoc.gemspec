@@ -11,6 +11,8 @@ Gem::Specification.new do |s|
   s.description = 'A base document object'
   s.authors     = ['John Wang']
   s.email       = 'johncwang@gmail.com'
+  s.homepage    = 'https://github.com/grokify/'
+  s.licenses    = ['MIT']
   s.files       = [
     'CHANGELOG.md',
     'LICENSE',
@@ -22,6 +24,4 @@ Gem::Specification.new do |s|
     'lib/jsondoc/document.rb',
     'test/test_setup.rb'
   ]
-  s.homepage    = 'http://johnwang.com/'
-  s.license     = 'MIT'
 end
