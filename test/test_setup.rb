@@ -50,4 +50,12 @@ class JsonDocTest < Test::Unit::TestCase
     doc = JsonDoc::Document.new(data,{},false,false)
     assert_equal 10, doc.getAttr('foo.bar.baz')
   end
+
+  def testNotNested()
+    doc2 = JsonDoc::Document.new({},{},false,false)
+    doc2.bUseDeepKeys = false
+    doc2.setAttr('foo.bar.baz', 'deadbeef')
+
+    assert_equal 'deadbeef', doc2.dDocument[:'foo.bar.baz']
+  end
 end

@@ -8,16 +8,18 @@ end
 
 module JsonDoc
   class Document
+    attr_reader :dDocument
+
     attr_accessor :bIsStrict
     attr_accessor :bUseKeyAsDesc
     attr_accessor :bUseDeepKeys
 
-    def initialize(dValues=nil,dSchema=nil,bDefaultifyDoc=false,bIsStrict=true)
+    def initialize(dValues=nil,dSchema=nil,bDefaultifyDoc=false,bIsStrict=true,opts={})
       @dSchema        = dSchema || self.getDefaultSchema()
       @bDefaultifyDoc = bDefaultifyDoc ? true : false
       @bIsStrict      = bIsStrict      ? true : false
       @bUseKeyAsDesc  = false
-      @bUseDeepKeys   = true
+      @bUseDeepKeys   = opts.key?(:bUseDeepKeys) ? opts[:bUseDeepKeys] : true
       @dDocument      = self.getDefaultDocument()
       self.loadHash(dValues) if dValues.is_a?(Hash)
     end
