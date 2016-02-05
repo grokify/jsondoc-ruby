@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.summary     = 'JsonDoc'
   s.description = 'A base document object'
   s.authors     = ['John Wang']
-  s.email       = 'john@johnwang.com'
+  s.email       = 'johncwang@gmail.com'
   s.files       = [
     'CHANGELOG.md',
     'LICENSE',
