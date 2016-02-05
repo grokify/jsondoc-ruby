@@ -86,8 +86,8 @@ JsonDoc &copy; 2014-2016 by John Wang
  [gem-version-link]: http://badge.fury.io/rb/jsondoc
  [build-status-svg]: https://api.travis-ci.org/grokify/jsondoc-ruby.svg?branch=master
  [build-status-link]: https://travis-ci.org/grokify/jsondoc-ruby
- [coverage-status-svg]: https://coveralls.io/repos/grokify/ringcentral-sdk-ruby/badge.svg?branch=master
- [coverage-status-link]: https://coveralls.io/r/grokify/ringcentral-sdk-ruby?branch=master
+ [coverage-status-svg]: https://coveralls.io/repos/grokify/jsondoc-ruby/badge.svg?branch=master
+ [coverage-status-link]: https://coveralls.io/r/grokify/jsondoc-ruby?branch=master
  [dependency-status-svg]: https://gemnasium.com/grokify/jsondoc-ruby.svg
  [dependency-status-link]: https://gemnasium.com/grokify/jsondoc-ruby
  [scrutinizer-status-svg]: https://scrutinizer-ci.com/g/grokify/jsondoc-ruby/badges/quality-score.png?b=master
