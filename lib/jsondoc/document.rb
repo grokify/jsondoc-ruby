@@ -32,10 +32,10 @@ module JsonDoc
 
     def getDefaultDocument()
       dDocument = {}
-      if @bDefaultifyDoc && @dSchema.has_key?(:properties)
+      if @bDefaultifyDoc && @dSchema.key?(:properties)
         @dSchema[:properties].keys.each do |yKey|
           dProperty = @dSchema[:properties][yKey]
-          xxVal     = dProperty.has_key?(:default) ? dProperty[:default] : ''
+          xxVal     = dProperty.key?(:default) ? dProperty[:default] : ''
           dDocument[yKey] = xxVal
         end
       end
@@ -69,7 +69,7 @@ module JsonDoc
 
     def getPropRecurse(aKeys=[],dDoc=nil)
       yKey = aKeys.shift
-      if ! yKey.is_a?(Symbol) || yKey.length<1 || ! dDoc.has_key?( yKey )
+      if ! yKey.is_a?(Symbol) || yKey.length<1 || ! dDoc.key?( yKey )
         return nil
       end
       xxVal = dDoc[ yKey ]
@@ -87,7 +87,7 @@ module JsonDoc
         raise ArgumentError, 'E_BAD_KEY__IS_NIL'
       end
       yKey  = yKey.to_sym if yKey.kind_of?(String)
-      xxVal = @dDocument.has_key?(yKey) ? @dDocument[yKey] : nil
+      xxVal = @dDocument.key?(yKey) ? @dDocument[yKey] : nil
       if xxVal.nil? && @bIsStrict
         self.validateKey(yKey)
       end
@@ -101,7 +101,7 @@ module JsonDoc
 
       return true unless @bIsStrict
 
-      bKeyExists = @dSchema.has_key?(:properties) && @dSchema[:properties].has_key?(yKey) ? true : false
+      bKeyExists = @dSchema.key?(:properties) && @dSchema[:properties].key?(yKey) ? true : false
 
       unless bKeyExists
         raise ArgumentError, "E_UNKNOWN_KEY__STRICT #{yKey.to_s}"
@@ -123,7 +123,7 @@ module JsonDoc
 
       self.validateKey(yKey)
 
-      if @dDocument.has_key?(yKey)
+      if @dDocument.key?(yKey)
         if @dDocument[yKey].kind_of?(Array)
           @dDocument[yKey].push(xxVal)
         else
@@ -182,7 +182,7 @@ module JsonDoc
 
         yKey  = yKey.to_sym if yKey.kind_of?(String)
         xxVal = getProp( yKey )
-        #xVal = @dDocument.has_key?(yKey) ? @dDocument[yKey] : nil
+        #xVal = @dDocument.key?(yKey) ? @dDocument[yKey] : nil
         xxVal = xxNil if xxVal.nil?
         aVals.push( xxVal )
 
@@ -204,9 +204,9 @@ module JsonDoc
 
         yKey  = yKey.to_sym if yKey.kind_of?(String)
         xxVal = (
-          @dSchema.has_key?(:properties)                          \
-          && @dSchema[:properties].has_key?(yKey)                 \
-          && @dSchema[:properties][yKey].has_key?(:description)   \
+          @dSchema.key?(:properties)                          \
+          && @dSchema[:properties].key?(yKey)                 \
+          && @dSchema[:properties][yKey].key?(:description)   \
           && @dSchema[:properties][yKey][:description].length > 0
         ) \
           ? @dSchema[:properties][yKey][:description] : yKey.to_s
