@@ -15,7 +15,7 @@ Generic JSON document base class to set/get document attributes based on JSON Sc
 
 ### Via Bundler
 
-Add 'jsondoc' to `Gemfile` and then run `bundle`:
+Add `jsondoc` to `Gemfile` and then run `bundle`:
 
 ```sh
 $ echo "gem 'jsondoc'" >> Gemfile
