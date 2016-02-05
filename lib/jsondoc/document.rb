@@ -10,12 +10,14 @@ module JsonDoc
   class Document
     attr_accessor :bIsStrict
     attr_accessor :bUseKeyAsDesc
+    attr_accessor :bUseDeepKeys
 
     def initialize(dValues=nil,dSchema=nil,bDefaultifyDoc=false,bIsStrict=true)
       @dSchema        = dSchema || self.getDefaultSchema()
       @bDefaultifyDoc = bDefaultifyDoc ? true : false
       @bIsStrict      = bIsStrict      ? true : false
       @bUseKeyAsDesc  = false
+      @bUseDeepKeys   = true
       @dDocument      = self.getDefaultDocument()
       self.loadHash(dValues) if dValues.is_a?(Hash)
     end
@@ -59,12 +61,16 @@ module JsonDoc
         raise ArgumentError, 'E_BAD_KEY__IS_NIL'
       end
       yKey  = yKey.to_sym if yKey.kind_of?(String)
-      aKeys = yKey.split('.')
-      #aKeys = yKey.to_s.split('.').map(&:to_sym)
 
-      dDoc  = @dDocument
-      xxVal = getPropRecurse(aKeys.clone,dDoc)
-      return xxVal
+      if @bUseDeepKeys
+        aKeys = yKey.split('.')
+        #aKeys = yKey.to_s.split('.').map(&:to_sym)
+
+        dDoc  = @dDocument
+        xxVal = getPropRecurse(aKeys.clone,dDoc)
+        return xxVal
+      end
+      return @dDocument.key?(yKey) ? @dDocument[yKey] : nil
     end
 
     def getPropRecurse(aKeys=[],dDoc=nil)

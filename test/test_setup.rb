@@ -1,5 +1,4 @@
-require 'test/unit'
-require 'jsondoc'
+require './test/test_base.rb'
 
 class JsonDocTest < Test::Unit::TestCase
   def testSetup
@@ -42,10 +41,10 @@ class JsonDocTest < Test::Unit::TestCase
 
   end
 
-  def test_nested()
+  def testNested()
     data = {
-      :foo => {
-        :bar => { :baz => 10 }
+      foo: {
+        bar: { baz: 10 }
       }
     }
     doc = JsonDoc::Document.new(data,{},false,false)
