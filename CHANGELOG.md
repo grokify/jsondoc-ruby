@@ -1,26 +1,26 @@
 CHANGELOG
 ---------
+- **2015-02-05**: 0.1.2
+  - Add missing test file
+- **2015-02-04**: 0.1.1
+  - Add initialize opts hash
+  - Add `attr_reader :dDocument`
+  - Add `bUseDeepKeys` to make deep key splitting optional
 - **2014-08-14**: 0.1.0
   - Support retrieval of properties from nested objects using period delmiter
-
 - **2014-06-05**: 0.0.6
-  - Return self from loadHash()
-
+  - Return self from `loadHash()`
 - **2014-04-17**: 0.0.5
-
 - **2014-03-16**: 0.0.4
   - Changed Attr methods to Prop methods to represent JSON schema property
   - Added Attr methods as aliases
   - Added ability to load initial values hash
   - Added key validation for #getProp() in strict mode
-  - Added attr_accessor for bIsStrict
+  - Added `attr_accessor :bIsStrict`
   - #push(Prop\Attr) will now only act on arrays
-
 - **2014-02-12**: 0.0.3
   - Added cpAttr() method
-
 - **2014-01-31**: 0.0.2
-  - README bugfix
-
+  - `README` bugfix
 - **2014-01-28**: 0.0.1
   - Initial release
