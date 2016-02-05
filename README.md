@@ -5,6 +5,7 @@ JsonDoc
 [![Build Status][build-status-svg]][build-status-link]
 [![Coverage Status][coverage-status-svg]][coverage-status-link]
 [![Dependency Status][dependency-status-svg]][dependency-status-link]
+[![Code Climate][codeclimate-status-svg]][codeclimate-status-link]
 [![Scrutinizer Code Quality][scrutinizer-status-svg]][scrutinizer-status-link]
 [![Downloads][downloads-svg]][downloads-link]
 [![Docs][docs-rubydoc-svg]][docs-rubydoc-link]
@@ -90,6 +91,8 @@ JsonDoc &copy; 2014-2016 by John Wang
  [coverage-status-link]: https://coveralls.io/r/grokify/jsondoc-ruby?branch=master
  [dependency-status-svg]: https://gemnasium.com/grokify/jsondoc-ruby.svg
  [dependency-status-link]: https://gemnasium.com/grokify/jsondoc-ruby
+ [codeclimate-status-svg]: https://codeclimate.com/github/grokify/jsondoc-ruby/badges/gpa.svg
+ [codeclimate-status-link]: https://codeclimate.com/github/grokify/jsondoc-ruby
  [scrutinizer-status-svg]: https://scrutinizer-ci.com/g/grokify/jsondoc-ruby/badges/quality-score.png?b=master
  [scrutinizer-status-link]: https://scrutinizer-ci.com/g/grokify/jsondoc-ruby/?branch=master
  [downloads-svg]: http://ruby-gem-downloads-badge.herokuapp.com/jsondoc
