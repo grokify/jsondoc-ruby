@@ -2,6 +2,7 @@ JsonDoc
 =======
 
 [![Gem Version][gem-version-svg]][gem-version-link]
+[![Build Status][build-status-svg]][build-status-link]
 [![Dependency Status][dependency-status-svg]][dependency-status-link]
 [![Scrutinizer Code Quality][scrutinizer-status-svg]][scrutinizer-status-link]
 [![Downloads][downloads-svg]][downloads-link]
@@ -75,6 +76,8 @@ JsonDoc &copy; 2014-2016 by John Wang
 
  [gem-version-svg]: https://badge.fury.io/rb/jsondoc.svg
  [gem-version-link]: http://badge.fury.io/rb/jsondoc
+ [build-status-svg]: https://api.travis-ci.org/grokify/jsondoc-ruby.svg?branch=master
+ [build-status-link]: https://travis-ci.org/grokify/jsondoc-ruby
  [downloads-svg]: http://ruby-gem-downloads-badge.herokuapp.com/jsondoc
  [downloads-link]: https://rubygems.org/gems/jsondoc
  [dependency-status-svg]: https://gemnasium.com/grokify/jsondoc-ruby.svg
