@@ -1,8 +1,8 @@
 CHANGELOG
 ---------
-- **2015-02-05**: 0.1.2
+- **2016-02-05**: 0.1.2
   - Add missing test file
-- **2015-02-04**: 0.1.1
+- **2016-02-04**: 0.1.1
   - Add initialize opts hash
   - Add `attr_reader :dDocument`
   - Add `bUseDeepKeys` to make deep key splitting optional
