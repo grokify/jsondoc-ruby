@@ -15,13 +15,12 @@ Gem::Specification.new do |s|
   s.licenses    = ['MIT']
   s.files       = [
     'CHANGELOG.md',
-    'LICENSE',
+    'LICENSE.txt',
     'README.md',
     'Rakefile',
-    'VERSION',
     'jsondoc.gemspec',
     'lib/jsondoc.rb',
     'lib/jsondoc/document.rb',
     'test/test_setup.rb'
-  ]
+  ] 
 end
