@@ -13,9 +13,16 @@ Generic JSON document base class to set/get document attributes based on JSON Sc
 
 ## Installation
 
-### Gem Installation
+### Via Bundler
 
-Download and install jsondoc with the following:
+Add 'jsondoc' to `Gemfile` and then run `bundle`:
+
+```sh
+$ echo "gem 'jsondoc'" >> Gemfile
+$ bundle
+```
+
+### Via RubyGems
 
 ```sh
 $ gem install jsondoc
@@ -28,12 +35,12 @@ require 'jsondoc'
 
 my_data = {}
 
-my_schema     =  {
-  :type       => 'My Document Type',
-  :properties => {
-    :first_name      => { :type => 'string', :description => 'First Name', :default => '' },
-    :last_name       => { :type => 'string', :description => 'Last Name',  :default => '' },
-    :email_addresses => { :type => 'array' , :description => 'Email Addresses', :default => [] }
+my_schema = {
+  type: 'My Document Type',
+  properties: {
+    first_name:      {type: 'string', description: 'First Name', default: ''},
+    last_name:       {type: 'string', description: 'Last Name',  default: ''},
+    email_addresses: {type: 'array' , description: 'Email Addresses', default: []}
   }
 }
 
