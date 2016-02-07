@@ -24,7 +24,7 @@ module JsonDoc
       self.loadHash(dValues) if dValues.is_a?(Hash)
     end
 
-    def getDefaultSchema()
+    def getDefaultSchema
       dSchema =  {
         type: '',
         properties: {
@@ -34,7 +34,7 @@ module JsonDoc
       return dSchema
     end
 
-    def getDefaultDocument()
+    def getDefaultDocument
       dDocument = {}
       if @bDefaultifyDoc && @dSchema.key?(:properties)
         @dSchema[:properties].keys.each do |yKey|
@@ -46,7 +46,7 @@ module JsonDoc
       return dDocument
     end
 
-    def loadHash(dValues=nil)
+    def loadHash(dValues = nil)
       if dValues.nil?
         return
       elsif ! dValues.is_a?(Hash)
@@ -58,10 +58,10 @@ module JsonDoc
       return self
     end
 
-    def getProp(yKey=nil)
+    def getProp(yKey = nil)
       raise ArgumentError, 'E_BAD_KEY__IS_NIL' if yKey.nil?
 
-      yKey = yKey.to_sym if yKey.kind_of?(String)
+      yKey = yKey.to_sym if yKey.is_a?(String)
 
       if @bUseDeepKeys
         aKeys = yKey.split('.') # = yKey.to_s.split('.').map(&:to_sym)
@@ -73,7 +73,7 @@ module JsonDoc
       return @dDocument.key?(yKey) ? @dDocument[yKey] : nil
     end
 
-    def getPropRecurse(aKeys=[],dDoc=nil)
+    def getPropRecurse(aKeys = [], dDoc = nil)
       yKey = aKeys.shift
       if ! yKey.is_a?(Symbol) || yKey.length<1 || ! dDoc.key?( yKey )
         return nil
@@ -88,11 +88,11 @@ module JsonDoc
       end
     end
 
-    def getPropSingle(yKey=nil)
+    def getPropSingle(yKey = nil)
       if yKey.nil?
         raise ArgumentError, 'E_BAD_KEY__IS_NIL'
       end
-      yKey  = yKey.to_sym if yKey.kind_of?(String)
+      yKey  = yKey.to_sym if yKey.is_a?(String)
       xxVal = @dDocument.key?(yKey) ? @dDocument[yKey] : nil
       if xxVal.nil? && @bIsStrict
         self.validateKey(yKey)
@@ -100,7 +100,7 @@ module JsonDoc
       return xxVal
     end
 
-    def validateKey(yKey=nil)
+    def validateKey(yKey = nil)
       raise ArgumentError, "E_BAD_KEY__IS_NIL [#{yKey.to_s}]" if yKey.nil?
 
       return true unless @bIsStrict
@@ -113,22 +113,22 @@ module JsonDoc
       return true
     end
 
-    def setProp(yKey=nil,xxVal=nil)
-      yKey = yKey.to_sym if yKey.kind_of?(String)
+    def setProp(yKey = nil, xxVal = nil)
+      yKey = yKey.to_sym if yKey.is_a?(String)
 
       self.validateKey(yKey)
 
       @dDocument[yKey] = xxVal
     end
 
-    def pushProp(yKey=nil,xxVal=nil)
-      yKey = yKey.to_sym if yKey.kind_of?(String)
+    def pushProp(yKey = nil, xxVal = nil)
+      yKey = yKey.to_sym if yKey.is_a?(String)
 
       self.validateKey(yKey)
 
       if @dDocument.key?(yKey)
-        if @dDocument[yKey].kind_of?(Array)
-          @dDocument[yKey].push(xxVal)
+        if @dDocument[yKey].is_a?(Array)
+          @dDocument[yKey].push xxVal
         else
           raise RuntimeError, 'E_PROPERTY_IS_NOT_ARRAY'
         end
@@ -137,43 +137,43 @@ module JsonDoc
       end
     end
 
-    def cpProp(yKeySrc=nil,yKeyDest=nil)
-      yKeySrc  = yKeySrc.to_sym if yKeySrc.kind_of?(String)
-      yKeyDest = yKeyDest.to_sym if yKeyDest.kind_of?(String)
+    def cpProp(yKeySrc = nil, yKeyDest = nil)
+      yKeySrc  = yKeySrc.to_sym if yKeySrc.is_a?(String)
+      yKeyDest = yKeyDest.to_sym if yKeyDest.is_a?(String)
       self.setAttr(yKeyDest, self.getAttr(yKeySrc))
     end
 
-    def sortKeys()
+    def sortKeys
       @dDocument.keys.sort!
     end
 
-    def fromJson(jDocument=nil)
-      if jDocument.kind_of?(String)
+    def fromJson(jDocument = nil)
+      if jDocument.is_a?(String)
         @dDocument = JSON.load(jDocument)
       end
       return self
     end
 
-    def fromDict(dDocument=nil)
+    def fromDict(dDocument = nil)
       @dDocument = dDocument if dDocument.is_a?(Hash)
     end
 
-    def asHash()
+    def asHash
       return @dDocument
     end
 
-    def asJson()
+    def asJson
       return JSON.dump( self.asHash() )
     end
 
-    def getValStringForProperties(aCols=nil,sDelimiter="\t")
-      sDelimiter = "\t" unless sDelimiter.kind_of?(String) && sDelimiter.length>0
+    def getValStringForProperties(aCols = nil, sDelimiter = "\t")
+      sDelimiter = "\t" unless sDelimiter.is_a?(String) && sDelimiter.length>0
       aVals = self.getValArrayForProperties(aCols)
       sVals = aVals.join(sDelimiter)
       return sVals
     end
 
-    def getValArrayForProperties(aCols=nil,xxNil='')
+    def getValArrayForProperties(aCols = nil, xxNil = '')
       aVals = []
       return aVals if aCols.nil?
 
@@ -183,29 +183,29 @@ module JsonDoc
 
       aCols.each do |yKey|
 
-        yKey  = yKey.to_sym if yKey.kind_of?(String)
+        yKey  = yKey.to_sym if yKey.is_a?(String)
         xxVal = getProp( yKey )
         #xVal = @dDocument.key?(yKey) ? @dDocument[yKey] : nil
         xxVal = xxNil if xxVal.nil?
-        aVals.push( xxVal )
+        aVals.push xxVal
 
       end
       return aVals
     end
 
-    def getDescStringForProperties(aCols=nil,sDelimiter="\t")
-      sDelimiter = "\t" unless sDelimiter.kind_of?(String) && sDelimiter.length>0
+    def getDescStringForProperties(aCols = nil,sDelimiter = "\t")
+      sDelimiter = "\t" unless sDelimiter.is_a?(String) && sDelimiter.length>0
       aVals = self.getDescArrayForProperties(aCols)
       sVals = aVals.join(sDelimiter)
       return sVals
     end
 
-    def getDescArrayForProperties(aCols=nil)
+    def getDescArrayForProperties(aCols = nil)
       aVals = []
       return aVals if aCols.nil?
       aCols.each do |yKey|
 
-        yKey  = yKey.to_sym if yKey.kind_of?(String)
+        yKey  = yKey.to_sym if yKey.is_a?(String)
         xxVal = (
           @dSchema.key?(:properties)                          \
           && @dSchema[:properties].key?(yKey)                 \
@@ -216,7 +216,7 @@ module JsonDoc
 
         xxVal = xxVal.to_s unless xxVal.is_a?(String)
 
-        aVals.push( xxVal )
+        aVals.push xxVal
       end
       return aVals
     end
