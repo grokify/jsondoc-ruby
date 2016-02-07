@@ -17,7 +17,7 @@ module JsonDoc
     def initialize(dValues=nil,dSchema=nil,bDefaultifyDoc=false,bIsStrict=true,opts={})
       @dSchema        = dSchema || self.getDefaultSchema()
       @bDefaultifyDoc = bDefaultifyDoc ? true : false
-      @bIsStrict      = bIsStrict      ? true : false
+      @bIsStrict      = bIsStrict ? true : false
       @bUseKeyAsDesc  = false
       @bUseDeepKeys   = opts.key?(:bUseDeepKeys) ? opts[:bUseDeepKeys] : true
       @dDocument      = self.getDefaultDocument()
@@ -42,7 +42,7 @@ module JsonDoc
           dDocument[yKey] = xxVal
         end
       end
-      return dDocument
+      dDocument
     end
 
     def loadHash(dValues = nil)
@@ -54,7 +54,7 @@ module JsonDoc
       dValues.each do |yKey,xxVal|
         self.setProp(yKey,xxVal)
       end
-      return self
+      self
     end
 
     def getProp(yKey = nil)
@@ -88,15 +88,13 @@ module JsonDoc
     end
 
     def getPropSingle(yKey = nil)
-      if yKey.nil?
-        raise ArgumentError, 'E_BAD_KEY__IS_NIL'
-      end
-      yKey  = yKey.to_sym if yKey.is_a?(String)
+      raise ArgumentError, 'E_BAD_KEY__IS_NIL' if yKey.nil?
+      yKey = yKey.to_sym if yKey.is_a?(String)
       xxVal = @dDocument.key?(yKey) ? @dDocument[yKey] : nil
       if xxVal.nil? && @bIsStrict
         self.validateKey(yKey)
       end
-      return xxVal
+      xxVal
     end
 
     def validateKey(yKey = nil)
@@ -122,7 +120,6 @@ module JsonDoc
 
     def pushProp(yKey = nil, xxVal = nil)
       yKey = yKey.to_sym if yKey.is_a?(String)
-
       self.validateKey(yKey)
 
       if @dDocument.key?(yKey)
@@ -137,7 +134,7 @@ module JsonDoc
     end
 
     def cpProp(yKeySrc = nil, yKeyDest = nil)
-      yKeySrc  = yKeySrc.to_sym if yKeySrc.is_a?(String)
+      yKeySrc = yKeySrc.to_sym if yKeySrc.is_a?(String)
       yKeyDest = yKeyDest.to_sym if yKeyDest.is_a?(String)
       self.setAttr(yKeyDest, self.getAttr(yKeySrc))
     end
