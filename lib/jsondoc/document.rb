@@ -25,13 +25,12 @@ module JsonDoc
     end
 
     def getDefaultSchema
-      dSchema =  {
+      {
         type: '',
         properties: {
           id: {default: '', description: 'Doc Id', type: 'string'}
         }
       }
-      return dSchema
     end
 
     def getDefaultDocument
@@ -159,18 +158,17 @@ module JsonDoc
     end
 
     def asHash
-      return @dDocument
+      @dDocument
     end
 
     def asJson
-      return JSON.dump( self.asHash() )
+      JSON.dump( self.asHash() )
     end
 
     def getValStringForProperties(aCols = nil, sDelimiter = "\t")
       sDelimiter = "\t" unless sDelimiter.is_a?(String) && sDelimiter.length>0
       aVals = self.getValArrayForProperties(aCols)
       sVals = aVals.join(sDelimiter)
-      return sVals
     end
 
     def getValArrayForProperties(aCols = nil, xxNil = '')
@@ -182,30 +180,26 @@ module JsonDoc
       end
 
       aCols.each do |yKey|
-
         yKey  = yKey.to_sym if yKey.is_a?(String)
         xxVal = getProp( yKey )
         #xVal = @dDocument.key?(yKey) ? @dDocument[yKey] : nil
         xxVal = xxNil if xxVal.nil?
         aVals.push xxVal
-
       end
-      return aVals
+      aVals
     end
 
     def getDescStringForProperties(aCols = nil,sDelimiter = "\t")
       sDelimiter = "\t" unless sDelimiter.is_a?(String) && sDelimiter.length>0
       aVals = self.getDescArrayForProperties(aCols)
-      sVals = aVals.join(sDelimiter)
-      return sVals
+      aVals.join(sDelimiter)
     end
 
     def getDescArrayForProperties(aCols = nil)
       aVals = []
       return aVals if aCols.nil?
       aCols.each do |yKey|
-
-        yKey  = yKey.to_sym if yKey.is_a?(String)
+        yKey = yKey.to_sym if yKey.is_a?(String)
         xxVal = (
           @dSchema.key?(:properties)                          \
           && @dSchema[:properties].key?(yKey)                 \
@@ -218,7 +212,7 @@ module JsonDoc
 
         aVals.push xxVal
       end
-      return aVals
+      aVals
     end
 
     alias_method :setAttr , :setProp
