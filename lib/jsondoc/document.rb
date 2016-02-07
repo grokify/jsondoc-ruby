@@ -25,10 +25,10 @@ module JsonDoc
     end
 
     def getDefaultSchema()
-      dSchema       =  {
-        :type       => '',
-        :properties => {
-          :id       => { :default => '', :description => 'Doc Id', :type => 'string' }
+      dSchema =  {
+        type: '',
+        properties: {
+          id: {default: '', description: 'Doc Id', type: 'string'}
         }
       }
       return dSchema
@@ -39,7 +39,7 @@ module JsonDoc
       if @bDefaultifyDoc && @dSchema.key?(:properties)
         @dSchema[:properties].keys.each do |yKey|
           dProperty = @dSchema[:properties][yKey]
-          xxVal     = dProperty.key?(:default) ? dProperty[:default] : ''
+          xxVal = dProperty.key?(:default) ? dProperty[:default] : ''
           dDocument[yKey] = xxVal
         end
       end
@@ -59,14 +59,12 @@ module JsonDoc
     end
 
     def getProp(yKey=nil)
-      if yKey.nil?
-        raise ArgumentError, 'E_BAD_KEY__IS_NIL'
-      end
-      yKey  = yKey.to_sym if yKey.kind_of?(String)
+      raise ArgumentError, 'E_BAD_KEY__IS_NIL' if yKey.nil?
+
+      yKey = yKey.to_sym if yKey.kind_of?(String)
 
       if @bUseDeepKeys
-        aKeys = yKey.split('.')
-        #aKeys = yKey.to_s.split('.').map(&:to_sym)
+        aKeys = yKey.split('.') # = yKey.to_s.split('.').map(&:to_sym)
 
         dDoc  = @dDocument
         xxVal = getPropRecurse(aKeys.clone,dDoc)
@@ -103,17 +101,14 @@ module JsonDoc
     end
 
     def validateKey(yKey=nil)
-      if yKey.nil?
-        raise ArgumentError, "E_BAD_KEY__IS_NIL [#{yKey.to_s}]"
-      end
+      raise ArgumentError, "E_BAD_KEY__IS_NIL [#{yKey.to_s}]" if yKey.nil?
 
       return true unless @bIsStrict
 
-      bKeyExists = @dSchema.key?(:properties) && @dSchema[:properties].key?(yKey) ? true : false
+      bKeyExists = @dSchema.key?(:properties) \
+        && @dSchema[:properties].key?(yKey) ? true : false
 
-      unless bKeyExists
-        raise ArgumentError, "E_UNKNOWN_KEY__STRICT #{yKey.to_s}"
-      end
+      raise ArgumentError, "E_UNKNOWN_KEY__STRICT #{yKey.to_s}" unless bKeyExists
 
       return true
     end
@@ -143,7 +138,7 @@ module JsonDoc
     end
 
     def cpProp(yKeySrc=nil,yKeyDest=nil)
-      yKeySrc  = yKeySrc.to_sym  if yKeySrc.kind_of?(String)
+      yKeySrc  = yKeySrc.to_sym if yKeySrc.kind_of?(String)
       yKeyDest = yKeyDest.to_sym if yKeyDest.kind_of?(String)
       self.setAttr(yKeyDest, self.getAttr(yKeySrc))
     end
