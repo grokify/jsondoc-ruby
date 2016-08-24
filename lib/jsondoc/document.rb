@@ -1,5 +1,3 @@
-require 'json'
-
 class Symbol
   def split(separator)
     to_s.split(separator).map(&:to_sym)
