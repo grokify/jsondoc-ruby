@@ -6,7 +6,7 @@ version = $1
 Gem::Specification.new do |s|
   s.name        = 'jsondoc'
   s.version     = version
-  s.date        = '2016-02-05'
+  s.date        = '2016-08-23'
   s.summary     = 'JsonDoc'
   s.description = 'A base document object'
   s.authors     = ['John Wang']

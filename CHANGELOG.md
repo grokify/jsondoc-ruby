@@ -1,5 +1,7 @@
 CHANGELOG
 ---------
+- **2016-08-23**: 0.1.3
+  - Remove hard coded `require 'json'`
 - **2016-02-05**: 0.1.2
   - Add missing test file
 - **2016-02-04**: 0.1.1

@@ -3,13 +3,13 @@ require './test/test_base.rb'
 class JsonDocTest < Test::Unit::TestCase
   def testSetup
 
-    schemaTest    =  {
-      :type       => 'TestDocument',
-      :properties => {
-        :id       => { :default => 'abc',   :type => 'string', :description => 'Id'    },
-        :foo      => { :default => 'bar',   :type => 'string', :description => 'Foo'   },
-        :hello    => { :default => 'world', :type => 'string', :description => 'Hello' },
-        :array    => { :default => ['foo'], :type => 'array',  :description => 'Array' }
+    schemaTest =  {
+      type: 'TestDocument',
+      properties: {
+        id: { default: 'abc',   type: 'string', description: 'Id'    },
+        foo: { default: 'bar',   type: 'string', description: 'Foo'   },
+        hello: { default: 'world', type: 'string', description: 'Hello' },
+        array: { default: ['foo'], type: 'array',  description: 'Array' }
       }
     }
 
