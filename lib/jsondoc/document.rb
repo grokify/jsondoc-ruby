@@ -163,7 +163,7 @@ module JsonDoc
     def getValStringForProperties(aCols = nil, sDelimiter = "\t")
       sDelimiter = "\t" unless sDelimiter.is_a?(String) && sDelimiter.length>0
       aVals = self.getValArrayForProperties(aCols)
-      sVals = aVals.join(sDelimiter)
+      return aVals.join(sDelimiter)
     end
 
     def getValArrayForProperties(aCols = nil, xxNil = '')
@@ -175,7 +175,7 @@ module JsonDoc
       end
 
       aCols.each do |yKey|
-        yKey  = yKey.to_sym if yKey.is_a?(String)
+        yKey  = yKey.to_sym if yKey.is_a? String
         xxVal = getProp( yKey )
         #xVal = @dDocument.key?(yKey) ? @dDocument[yKey] : nil
         xxVal = xxNil if xxVal.nil?
@@ -194,7 +194,7 @@ module JsonDoc
       aVals = []
       return aVals if aCols.nil?
       aCols.each do |yKey|
-        yKey = yKey.to_sym if yKey.is_a?(String)
+        yKey = yKey.to_sym if yKey.is_a? String
         xxVal = (
           @dSchema.key?(:properties)                          \
           && @dSchema[:properties].key?(yKey)                 \
@@ -203,7 +203,7 @@ module JsonDoc
         ) \
           ? @dSchema[:properties][yKey][:description] : yKey.to_s
 
-        xxVal = xxVal.to_s unless xxVal.is_a?(String)
+        xxVal = xxVal.to_s unless xxVal.is_a? String
 
         aVals.push xxVal
       end
