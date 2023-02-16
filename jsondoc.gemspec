@@ -6,7 +6,7 @@ version = $1
 Gem::Specification.new do |s|
   s.name        = 'jsondoc'
   s.version     = version
-  s.date        = '2016-08-23'
+  s.date        = '2023-02-15'
   s.summary     = 'JsonDoc'
   s.description = 'A base document object'
   s.authors     = ['John Wang']
@@ -15,4 +15,7 @@ Gem::Specification.new do |s|
   s.licenses    = ['MIT']
   s.files       = Dir['lib/**/**/*'] + Dir['test/**/*'] \
                 + Dir['[A-Z]*'].grep(/^[A-Z]/).select {|s|/Gemfile\.lock/ !~ s}
+
+  s.add_development_dependency 'rake', '~> 13', '>= 13.0.6'
+  s.add_development_dependency 'test-unit', '~> 3'
 end
