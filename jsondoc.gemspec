@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.description = 'A base document object'
   s.authors     = ['John Wang']
   s.email       = 'johncwang@gmail.com'
-  s.homepage    = 'https://github.com/grokify/'
+  s.homepage    = 'https://github.com/grokify/jsondoc-ruby'
   s.licenses    = ['MIT']
   s.files       = Dir['lib/**/**/*'] + Dir['test/**/*'] \
                 + Dir['[A-Z]*'].grep(/^[A-Z]/).select {|s|/Gemfile\.lock/ !~ s}
