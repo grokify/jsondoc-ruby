@@ -7,7 +7,6 @@ JsonDoc
 [![Dependency Status][dependency-status-svg]][dependency-status-link]
 [![Code Climate][codeclimate-status-svg]][codeclimate-status-link]
 [![Scrutinizer Code Quality][scrutinizer-status-svg]][scrutinizer-status-link]
-[![Downloads][downloads-svg]][downloads-link]
 [![Docs][docs-rubydoc-svg]][docs-rubydoc-link]
 [![License][license-svg]][license-link]
 
@@ -81,7 +80,7 @@ Schema validation is not provided in this version.
 
 JsonDoc is available under an MIT-style license. See [LICENSE.txt](LICENSE.txt) for details.
 
-JsonDoc &copy; 2014-2016 by John Wang
+JsonDoc &copy; 2014-2023 by John Wang
 
  [gem-version-svg]: https://badge.fury.io/rb/jsondoc.svg
  [gem-version-link]: http://badge.fury.io/rb/jsondoc
