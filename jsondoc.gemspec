@@ -16,6 +16,7 @@ Gem::Specification.new do |s|
   s.files       = Dir['lib/**/**/*'] + Dir['test/**/*'] \
                 + Dir['[A-Z]*'].grep(/^[A-Z]/).select {|s|/Gemfile\.lock/ !~ s}
 
+  s.required_ruby_version = '>= 2.0.0'
   s.add_development_dependency 'rake', '~> 13', '>= 13.0.6'
   s.add_development_dependency 'test-unit', '~> 3'
 end
